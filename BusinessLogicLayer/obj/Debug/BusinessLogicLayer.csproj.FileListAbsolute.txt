@@ -9,3 +9,14 @@ E:\Billing New\Billing\BusinessLogicLayer\bin\Debug\DataAccessLayer.pdb
 E:\Billing New\Billing\BusinessLogicLayer\bin\Debug\EntityFramework.xml
 E:\Billing New\Billing\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.dll
 E:\Billing New\Billing\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.pdb
+E:\Billing New\Billing\Testing\BusinessLogicLayer\bin\Debug\BusinessLogicLayer.dll
+E:\Billing New\Billing\Testing\BusinessLogicLayer\bin\Debug\BusinessLogicLayer.pdb
+E:\Billing New\Billing\Testing\BusinessLogicLayer\bin\Debug\BusinessObjectLayer.dll
+E:\Billing New\Billing\Testing\BusinessLogicLayer\bin\Debug\DataAccessLayer.dll
+E:\Billing New\Billing\Testing\BusinessLogicLayer\bin\Debug\EntityFramework.dll
+E:\Billing New\Billing\Testing\BusinessLogicLayer\bin\Debug\BusinessObjectLayer.pdb
+E:\Billing New\Billing\Testing\BusinessLogicLayer\bin\Debug\DataAccessLayer.pdb
+E:\Billing New\Billing\Testing\BusinessLogicLayer\bin\Debug\EntityFramework.xml
+E:\Billing New\Billing\Testing\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csprojResolveAssemblyReference.cache
+E:\Billing New\Billing\Testing\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.dll
+E:\Billing New\Billing\Testing\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.pdb
