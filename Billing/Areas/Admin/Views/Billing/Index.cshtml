@@ -1,0 +1,260 @@
+﻿@model BusinessObjectLayer.CommonModels.ProductModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h4>Billing</h4>
+<hr />
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<link href="~/Content/juquery-ui.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-ui.js"></script>
+<script>
+  $( function() {
+
+      $("#txtSearchProduct").autocomplete(
+          {
+          source: '@Url.Action("GetProductNames")',
+         autoFocus:true
+    });
+  } );
+</script>
+<div class="container">
+    <div class="row">
+        <div class="col-md-7">
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Customer Name</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                    <input type="text" class="form-control" id="txtSearchProduct" placeholder="Customer Name">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-5">
+
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Invc Date</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                    <input type="date" class="form-control" id="txtInvoiceDate">
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+    <div class="row">
+        <div class="form-group">
+            <div class="col-md-12">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th class="ProductId">Product ID</th>
+                            <th>Product Name</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                            <th>Discount</th>
+                            <th>Amount</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tblActiveProducts"></tbody>
+                    <tfoot>
+                        <tr>
+                            <td id="" class="ProductId"></td>
+                            <td><button class="btn btn-success" id="btnCreateProducts">Add more</button></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td id="" class="ProductId"></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                Sub total
+                            </td>
+                            <td>
+                                <input type="text" class="form-control productAmountSubtotal" />
+                            </td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td id="" class="ProductId"></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>Discount</td>
+                            <td>
+                                <input type="text" class="form-control productFinalDiscount" />
+                            </td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td id="" class="ProductId"></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>Adjustment</td>
+                            <td>
+                                <input type="text" class="form-control ProductAdjustment" />
+                            </td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td id="" class="ProductId"></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>Total</td>
+                            <td>
+                                <input type="text" class="form-control PorductGrandTotal" />
+                            </td>
+                            <td></td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+
+        <div id="tblProductDiv" style="display:none;">
+            <table>
+                <tbody id="tblProductTbody">
+                    <tr>
+                        <td id="" class="ProductId"></td>
+                        <td>
+                            <select class="form-control" id="ddnSearchProductName">
+                                <option value="0">Select Product</option>
+                                @foreach (var item in Model.ProductList)
+                                {
+                                    <option value="@item.ID">@item.ProductName</option>
+                                }
+                            </select>
+                            @*<input type="text" class="form-control" id="txtSearchProductName" placeholder="Customer Name">*@
+                        </td>
+                        <td>
+                            <input type="text" class="form-control productQuantity" />
+                        </td>
+                        <td>
+                            <input type="text" value="@Model.Price" class="form-control productPrice" />
+                        </td>
+                        <td>
+                            <input type="text" class="form-control productDiscount" />
+                        </td>
+                        <td>
+                            <input type="text" class="form-control productAmount" />
+                        </td>
+                        <td>
+                            <a href="#" class="deleteProductRow">Delete</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+<script src="~/Scripts/bootstrap.js"></script>
+ 
+<script>
+    $(document).ready(function () {
+
+        $('#txtSearchProductName').on('change', function (e) {
+            var SearchProduct = $('#txtSearchProductName').val();
+             
+            $.ajax({
+                url: '/Billing/GetProductNames?SearchProduct='+ SearchProduct,
+                type: 'GET',
+                success: fun2,
+                error: fun3
+            });
+        });
+
+        AddActiveProductRow();
+        //initializeMultiselect();
+        $(document).on("click", "#btnCreateProducts", function (e) {
+            e.stopImmediatePropagation();
+            AddActiveProductRow();
+        });
+
+        $(document).on("click", ".deleteProductRow", function (e) {
+            e.stopImmediatePropagation();
+            $(this).closest('tr').remove();
+        });
+
+        $(document).on("keyup", ".productQuantity,.productPrice,.productDiscount,.productFinalDiscount,.ProductAdjustment", function () {
+
+            var productQty = $(".productQuantity").val();
+            var productPrice = $(".productPrice").val();
+            var discountperproduct = $(".productDiscount").val();
+
+
+            //var subTotalVal = $(".productAmountSubtotal").val();
+            //if (subTotalVal == undefined || subTotalVal == null || subTotalVal.trim()=="") {
+            //    subTotalVal = "0";
+            //}
+            var productQtyInt = parseInt(0);
+            var productPriceInt = parseInt(0);
+            var discountperproductInt = parseInt(0);
+
+
+             productQtyInt = parseInt(productQty);
+             productPriceInt = parseInt(productPrice);
+             discountperproductInt=parseInt(discountperproduct);
+
+            //if (discountperproduct == undefined || discountperproduct == null || discountperproduct.trim()=="") {
+            //    discountperproduct = parseInt(0);
+            //    var TotalAmount = (productQtyInt * productPriceInt) * (discountperproduct) / 100;
+            //}
+            //else {
+            //    var TotalAmount = (productQtyInt * productPriceInt) * (discountperproduct) / 100;
+            //
+            var TotalAmount = productQtyInt * productPriceInt;
+
+            var DiscountPerProduct = TotalAmount*discountperproductInt / 100;
+ 
+            var TotalAmount = TotalAmount - DiscountPerProduct;
+            $(".productAmount").val(TotalAmount);
+            $(".productAmountSubtotal").val(TotalAmount);
+
+            var subtotal = $(".productAmountSubtotal").val();
+            var subtotalInt = parseInt(subtotal);
+
+            var FinalDisount = $(".productFinalDiscount").val();
+            var FinalDiscountInt = parseInt(FinalDisount);
+                       
+
+            var GrandTotal = subtotalInt - (subtotalInt * FinalDiscountInt / 100);
+
+            $(".PorductGrandTotal").val(GrandTotal);
+
+            var Adjustment = $(".ProductAdjustment").val();
+            var AdjustmentInt = parseInt(Adjustment);
+
+            var GrandTotal = GrandTotal - AdjustmentInt;
+            $(".PorductGrandTotal").val(GrandTotal);
+
+        });
+    });
+
+    function AddActiveProductRow() {
+        var _htmlTrRow = $("#tblProductTbody").html();
+        $("#tblActiveProducts").append(_htmlTrRow);
+    }
+
+    function initializeMultiselect() {
+        $('#DdlCustomerNames').multiselect({
+            enableFiltering: true
+        });
+
+       
+    }
+</script>
+
+<style>
+    .ProductId {
+        display: none;
+    }
+</style>
