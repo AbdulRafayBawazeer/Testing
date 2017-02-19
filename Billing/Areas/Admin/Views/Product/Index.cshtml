@@ -45,25 +45,13 @@
 </div>
 
 <script>
-    var _productName = $("#txtProductName");
-    var _productDesc = $("#txtProductDesc");
-    var _productPrice = $("#txtProductPrice");
-    var _productCategoryId = $("#ddnCategory");
-    var _productCategoryName = $("#ddnCategory option:selected");
-    var _productImage = $("#uploadProductImage");
-    var _productImageBase64 = $("#hdnImageBase64");
-    var _productImageBase64Ext = $("#hdnImageBase64Ext");
+    var _CategoryName = $("#txtCategoryName");  
+    var _ParentId = $("#ddnCategory option:selected");   
     var hdrTextSaveProduct = "Add Product";
     var hdrTextEditProduct = "Edit Product";
     function initProduct() {
-         _productName = $("#txtProductName");
-         _productDesc = $("#txtProductDesc");
-         _productPrice = $("#txtProductPrice");
-         _productCategoryId = $("#ddnCategory");
-         _productCategoryName = $("#ddnCategory option:selected");
-         _productImage = $("#uploadProductImage");
-         _productImageBase64 = $("#hdnImageBase64");
-         _productImageBase64Ext = $("#hdnImageBase64Ext");
+        var _CategoryName = $("#txtCategoryName");
+        var _ParentId = $("#ddnCategory option:selected");
     }
     $(document).ready(function () {
         //Save product
