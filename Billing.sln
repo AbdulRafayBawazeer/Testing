@@ -12,6 +12,7 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLogicLayer", "BusinessLogicLayer\BusinessLogicLayer.csproj", "{EFFDE636-FB79-428B-85F7-3A31EAAE7D5A}"
 	ProjectSection(ProjectDependencies) = postProject
 		{976B070C-5245-4F9B-98D2-D73C7CB6C3EF} = {976B070C-5245-4F9B-98D2-D73C7CB6C3EF}
+		{EFB195B0-1343-4C9C-A6A6-55E178F16060} = {EFB195B0-1343-4C9C-A6A6-55E178F16060}
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessObjectLayer", "BusinessObjectLayer\BusinessObjectLayer.csproj", "{976B070C-5245-4F9B-98D2-D73C7CB6C3EF}"
@@ -22,6 +23,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessLayer", "DataAcce
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BillingApi", "BillingApi\BillingApi.csproj", "{36CEE835-903E-4C52-9786-E0052243DB9C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{976B070C-5245-4F9B-98D2-D73C7CB6C3EF} = {976B070C-5245-4F9B-98D2-D73C7CB6C3EF}
+		{EFFDE636-FB79-428B-85F7-3A31EAAE7D5A} = {EFFDE636-FB79-428B-85F7-3A31EAAE7D5A}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

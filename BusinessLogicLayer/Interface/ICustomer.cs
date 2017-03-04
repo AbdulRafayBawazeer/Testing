@@ -13,5 +13,6 @@ namespace BusinessLogicLayer.Interface
         List<CustomerModel> CustomerList();
         int SaveCustomer(CustomerModel mode);
         CustomerModel Getbyid(int id);
+        List<CustomerModel> CustomerNamesList();
     }
 }

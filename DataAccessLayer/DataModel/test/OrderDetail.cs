@@ -8,9 +8,7 @@ namespace DataAccessLayer.DataModel.test
 
     public partial class OrderDetail
     {
-        public long ID { get; set; }
-
-        public int? CustomerID { get; set; }
+        public int ID { get; set; }
 
         public long? OrderID { get; set; }
 
@@ -18,16 +16,10 @@ namespace DataAccessLayer.DataModel.test
 
         public int? Quantity { get; set; }
 
+        public int? Discount { get; set; }
+
         public decimal? UnitPrice { get; set; }
 
         public decimal? TotalPrice { get; set; }
-
-        public DateTime? CreatedOn { get; set; }
-
-        public int? CreatedBy { get; set; }
-
-        public virtual Order Order { get; set; }
-
-        public virtual Product Product { get; set; }
     }
 }

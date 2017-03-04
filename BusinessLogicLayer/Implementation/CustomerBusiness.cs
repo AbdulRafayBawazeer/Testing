@@ -79,6 +79,23 @@ namespace BusinessLogicLayer.Implementation
             return _customer;
         }
 
+        public List<CustomerModel> CustomerNamesList()
+        {
+            List<CustomerModel> _customerList = new List<CustomerModel>();
+            var CustomerNames = _Customer.GetAll().ToList();
+            CustomerNames = CustomerNames ?? new List<Customer>();
+            _customerList = (from item in CustomerNames
+                             select new CustomerModel
+                             {
+                                 ID = item.ID,
+                                 CustomerName = item.CustomerName
+
+
+
+                             }).ToList();
+            return _customerList;
+        }
+
     }
 
 }

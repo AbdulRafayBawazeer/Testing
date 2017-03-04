@@ -19,14 +19,15 @@ namespace DataAccessLayer.DataModel
 
         public int? CustomerID { get; set; }
 
-        [StringLength(50)]
-        public string TransactionID { get; set; }
+        public int? TransactionID { get; set; }
 
         public decimal? ActualPrice { get; set; }
 
-        public decimal? Discount { get; set; }
+        public int? Discount { get; set; }
 
         public decimal? TotalPrice { get; set; }
+
+        public decimal? Adjustment { get; set; }
 
         public DateTime? CreatedOn { get; set; }
 

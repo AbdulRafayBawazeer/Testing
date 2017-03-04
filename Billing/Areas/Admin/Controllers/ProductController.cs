@@ -37,7 +37,7 @@ namespace Billing.Areas.Admin.Controllers
                     {
                         var AddProduct = _ProductBusiness.SaveProduct(model);
                     }
-                    _ProductModel.ProductList = _ProductBusiness.ProductList();
+                    _ProductModel.ProductList = _ProductBusiness.ProductList(_ProductModel);
                     return PartialView("_ListProducts", _ProductModel);
                 }
             }
@@ -64,6 +64,6 @@ namespace Billing.Areas.Admin.Controllers
             {
                 throw;
             }
-        }
+        }        
     }
 }

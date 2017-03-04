@@ -23,9 +23,14 @@ namespace Billing
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/toastr").Include(
+                      "~/Scripts/toastr/toastr.min.js"));
+
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+            bundles.Add(new StyleBundle("~/Content/toastr").Include(
+                      "~/Content/toastr/toastr.min.css"));
         }
     }
 }

@@ -15,7 +15,7 @@ using Billing.Authorize;
 
 namespace Billing.Areas.Admin.Controllers
 {
-    [Authorize]
+ 
     public class CategoryController : BaseController
     {
         private CategoryModel _CategoryModel;

@@ -22,3 +22,15 @@ E:\Billing New\Billing\Testing\DataAccessLayer\bin\Debug\EntityFramework.SqlServ
 E:\Billing New\Billing\Testing\DataAccessLayer\obj\Debug\DataAccessLayer.csprojResolveAssemblyReference.cache
 E:\Billing New\Billing\Testing\DataAccessLayer\obj\Debug\DataAccessLayer.dll
 E:\Billing New\Billing\Testing\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
+E:\Billing New\Billing New Feb\Testing\DataAccessLayer\bin\Debug\DataAccessLayer.dll.config
+E:\Billing New\Billing New Feb\Testing\DataAccessLayer\bin\Debug\DataAccessLayer.dll
+E:\Billing New\Billing New Feb\Testing\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+E:\Billing New\Billing New Feb\Testing\DataAccessLayer\bin\Debug\BusinessObjectLayer.dll
+E:\Billing New\Billing New Feb\Testing\DataAccessLayer\bin\Debug\EntityFramework.dll
+E:\Billing New\Billing New Feb\Testing\DataAccessLayer\bin\Debug\EntityFramework.SqlServer.dll
+E:\Billing New\Billing New Feb\Testing\DataAccessLayer\bin\Debug\BusinessObjectLayer.pdb
+E:\Billing New\Billing New Feb\Testing\DataAccessLayer\bin\Debug\EntityFramework.xml
+E:\Billing New\Billing New Feb\Testing\DataAccessLayer\bin\Debug\EntityFramework.SqlServer.xml
+E:\Billing New\Billing New Feb\Testing\DataAccessLayer\obj\Debug\DataAccessLayer.csprojResolveAssemblyReference.cache
+E:\Billing New\Billing New Feb\Testing\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+E:\Billing New\Billing New Feb\Testing\DataAccessLayer\obj\Debug\DataAccessLayer.pdb

@@ -15,11 +15,31 @@ namespace BusinessLogicLayer.Implementation
     {
         private readonly IGenericPattern<Product> _Product;
         private readonly IGenericPattern<Category> _Category;
+        private readonly IGenericPattern<Customer> _Customer;
+
+
 
         public ProductBusiness()
         {
             _Product = new GenericPattern<Product>();
             _Category = new GenericPattern<Category>();
+            _Customer = new GenericPattern<Customer>();
+        }
+        public List<CustomerModel> CustomerNamesList()
+        {
+            List<CustomerModel> _customerList = new List<CustomerModel>();
+            var CustomerNames = _Customer.GetAll().ToList();
+            CustomerNames = CustomerNames ?? new List<Customer>();
+            _customerList = (from item in CustomerNames
+                             select new CustomerModel
+                             {
+                                 ID = item.ID,
+                                 CustomerName = item.CustomerName
+
+
+
+                             }).ToList();
+            return _customerList;
         }
         public ProductModel GetProductbyId(int id)
         {
@@ -40,10 +60,14 @@ namespace BusinessLogicLayer.Implementation
                     return _product;
         }
 
-        public List<ProductModel> ProductList()
+        public List<ProductModel> ProductList(ProductModel _ProductModel)
         {
             List<ProductModel> _productList = new List<ProductModel>();
             var productList = _Product.FindBy(m => m.IsActive == true);
+            if (!string.IsNullOrWhiteSpace(_ProductModel.ProductName))
+            {
+                productList = productList.Where(m => m.ProductName.ToLower().Contains(_ProductModel.ProductName.ToLower()));
+            }
             productList = productList ?? new List<Product>();
             _productList = (from item in productList
                             select new ProductModel
@@ -56,7 +80,7 @@ namespace BusinessLogicLayer.Implementation
                                  Image=item.Image,
                                  ImageType=item.ImageType,
                                  CategoryName= (item.Category != null) ? item.Category.CategoryName : string.Empty,
-
+                                 Quantity=1
                              }).ToList();
             return _productList;
         }
@@ -97,7 +121,7 @@ namespace BusinessLogicLayer.Implementation
         {
             model = model ?? new ProductModel();
             model.CategoryList = CategoryList();
-            model.ProductList = ProductList();
+            model.ProductList = ProductList(model);
             return model;
         }
 

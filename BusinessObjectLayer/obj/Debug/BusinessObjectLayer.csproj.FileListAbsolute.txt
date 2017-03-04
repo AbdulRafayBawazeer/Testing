@@ -16,3 +16,11 @@ E:\Billing New\Billing\Testing\BusinessObjectLayer\bin\Debug\EntityFramework.xml
 E:\Billing New\Billing\Testing\BusinessObjectLayer\obj\Debug\BusinessObjectLayer.csprojResolveAssemblyReference.cache
 E:\Billing New\Billing\Testing\BusinessObjectLayer\obj\Debug\BusinessObjectLayer.dll
 E:\Billing New\Billing\Testing\BusinessObjectLayer\obj\Debug\BusinessObjectLayer.pdb
+E:\Billing New\Billing New Feb\Testing\BusinessObjectLayer\bin\Debug\BusinessObjectLayer.dll
+E:\Billing New\Billing New Feb\Testing\BusinessObjectLayer\bin\Debug\BusinessObjectLayer.pdb
+E:\Billing New\Billing New Feb\Testing\BusinessObjectLayer\obj\Debug\BusinessObjectLayer.dll
+E:\Billing New\Billing New Feb\Testing\BusinessObjectLayer\obj\Debug\BusinessObjectLayer.pdb
+E:\Billing New\Billing New Feb\Testing\BusinessObjectLayer\bin\Debug\DataAccessLayer.dll
+E:\Billing New\Billing New Feb\Testing\BusinessObjectLayer\bin\Debug\EntityFramework.dll
+E:\Billing New\Billing New Feb\Testing\BusinessObjectLayer\bin\Debug\DataAccessLayer.pdb
+E:\Billing New\Billing New Feb\Testing\BusinessObjectLayer\obj\Debug\BusinessObjectLayer.csprojResolveAssemblyReference.cache

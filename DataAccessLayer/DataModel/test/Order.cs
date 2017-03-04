@@ -19,8 +19,7 @@ namespace DataAccessLayer.DataModel.test
 
         public int? CustomerID { get; set; }
 
-        [StringLength(50)]
-        public string TransactionID { get; set; }
+        public int? TransactionID { get; set; }
 
         public decimal? ActualPrice { get; set; }
 

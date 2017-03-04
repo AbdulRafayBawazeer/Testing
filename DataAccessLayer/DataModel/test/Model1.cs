@@ -8,7 +8,7 @@ namespace DataAccessLayer.DataModel.test
     public partial class Model1 : DbContext
     {
         public Model1()
-            : base("name=Model1")
+            : base("name=Model11")
         {
         }
 
@@ -36,10 +36,6 @@ namespace DataAccessLayer.DataModel.test
 
             modelBuilder.Entity<Customer>()
                 .Property(e => e.Email)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Order>()
-                .Property(e => e.TransactionID)
                 .IsUnicode(false);
 
             modelBuilder.Entity<Product>()

@@ -64,6 +64,7 @@
     <Compile Include="DataModel\test\Category.cs" />
     <Compile Include="DataModel\test\Customer.cs" />
     <Compile Include="DataModel\test\Model1.cs" />
+    <Compile Include="DataModel\test\Model2.cs" />
     <Compile Include="DataModel\test\Order.cs" />
     <Compile Include="DataModel\test\OrderDetail.cs" />
     <Compile Include="DataModel\test\Product.cs" />

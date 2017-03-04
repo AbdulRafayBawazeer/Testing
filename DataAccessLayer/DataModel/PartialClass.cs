@@ -58,4 +58,40 @@ namespace DataAccessLayer.DataModel
     }
 
 
+
+    public partial class Order
+    {
+
+        public Order(BillingModel _obj, DateTime _createdDate, int _userId)
+        {
+            ID = _obj.OrderId;
+            TransactionID = _obj.TransactionId;
+            CustomerID = _obj.CustomerId;
+            ActualPrice = _obj.SubTotal;
+            Discount = _obj.Discount;
+            Adjustment = _obj.Adjustment;
+            TotalPrice = _obj.GrandTotal;
+            CreatedOn = _createdDate;
+            CreatedBy = _userId;
+        }
+    }
+
+
+
+    public partial class OrderDetail
+    {
+
+        public OrderDetail(BillingModel _obj)
+        {
+            ID = _obj.OrderDetailsId;
+            OrderID = _obj.OrderId;
+            ProductID = _obj.ProductNameId;
+            Quantity = _obj.ProductQuantity;
+            UnitPrice = _obj.ProductPrice;
+            TotalPrice = _obj.ProductAmount;
+            Discount = _obj.ProductDiscount;
+        }
+    }
+
+
 }

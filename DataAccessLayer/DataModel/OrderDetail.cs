@@ -8,9 +8,11 @@ namespace DataAccessLayer.DataModel
 
     public partial class OrderDetail
     {
-        public long ID { get; set; }
-
-        public int? CustomerID { get; set; }
+        public OrderDetail()
+        {
+           
+        }
+        public int ID { get; set; }
 
         public long? OrderID { get; set; }
 
@@ -18,13 +20,11 @@ namespace DataAccessLayer.DataModel
 
         public int? Quantity { get; set; }
 
+        public int? Discount { get; set; }
+
         public decimal? UnitPrice { get; set; }
 
         public decimal? TotalPrice { get; set; }
-
-        public DateTime? CreatedOn { get; set; }
-
-        public int? CreatedBy { get; set; }
 
         public virtual Order Order { get; set; }
 

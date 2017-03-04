@@ -9490,13 +9490,13 @@ var plugin = $.ui.plugin = {
 		var i,
 			proto = $.ui[ module ].prototype;
 		for ( i in set ) {
-			proto.plugins[ i ] = proto.plugins[ i ] || [];
-			proto.plugins[ i ].push( [ option, set[ i ] ] );
+			proto.~/Content/Theme[ i ] = proto.~/Content/Theme[ i ] || [];
+			proto.~/Content/Theme[ i ].push( [ option, set[ i ] ] );
 		}
 	},
 	call: function( instance, name, args, allowDisconnected ) {
 		var i,
-			set = instance.plugins[ name ];
+			set = instance.~/Content/Theme[ name ];
 
 		if ( !set ) {
 			return;
@@ -9768,7 +9768,7 @@ $.widget( "ui.draggable", $.ui.mouse, {
 		this.position = this._generatePosition( event, true );
 		this.positionAbs = this._convertPositionTo( "absolute" );
 
-		//Call plugins and callbacks and use the resulting position if something is returned
+		//Call ~/Content/Theme and callbacks and use the resulting position if something is returned
 		if ( !noPropagation ) {
 			var ui = this._uiHash();
 			if ( this._trigger( "drag", event, ui ) === false ) {
@@ -10256,7 +10256,7 @@ $.widget( "ui.draggable", $.ui.mouse, {
 		ui = ui || this._uiHash();
 		$.ui.plugin.call( this, type, [ event, ui, this ], true );
 
-		// Absolute position and offset (see #6884 ) have to be recalculated after plugins
+		// Absolute position and offset (see #6884 ) have to be recalculated after ~/Content/Theme
 		if ( /^(drag|start|stop)/.test( type ) ) {
 			this.positionAbs = this._convertPositionTo( "absolute" );
 			ui.offset = this.positionAbs;
@@ -10264,7 +10264,7 @@ $.widget( "ui.draggable", $.ui.mouse, {
 		return $.Widget.prototype._trigger.call( this, type, event, ui );
 	},
 
-	plugins: {},
+	~/Content/Theme: {},
 
 	_uiHash: function() {
 		return {
@@ -11514,7 +11514,7 @@ $.widget( "ui.resizable", $.ui.mouse, {
 		( n !== "resize" && this._trigger( n, event, this.ui() ) );
 	},
 
-	plugins: {},
+	~/Content/Theme: {},
 
 	ui: function() {
 		return {
@@ -16669,7 +16669,7 @@ var widgetsSortable = $.widget( "ui.sortable", $.ui.mouse, {
 			}
 		}
 
-		//Do what was originally in plugins
+		//Do what was originally in ~/Content/Theme
 		if ( this.storedCursor ) {
 			this.document.find( "body" ).css( "cursor", this.storedCursor );
 			this.storedStylesheet.remove();

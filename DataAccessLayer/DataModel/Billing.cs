@@ -22,8 +22,8 @@ namespace DataAccessLayer.DataModel
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Category>()
-                .Property(e => e.CategoryName)
-                .IsUnicode(false);
+                 .Property(e => e.CategoryName)
+                 .IsUnicode(false);
 
             modelBuilder.Entity<Customer>()
                 .Property(e => e.CustomerName)
@@ -37,16 +37,20 @@ namespace DataAccessLayer.DataModel
                 .Property(e => e.Email)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<Order>()
-                .Property(e => e.TransactionID)
-                .IsUnicode(false);
-
             modelBuilder.Entity<Product>()
                 .Property(e => e.ProductName)
                 .IsUnicode(false);
 
             modelBuilder.Entity<Product>()
                 .Property(e => e.Description)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Product>()
+                .Property(e => e.ImageType)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Product>()
+                .Property(e => e.Image)
                 .IsUnicode(false);
 
             modelBuilder.Entity<User>()
