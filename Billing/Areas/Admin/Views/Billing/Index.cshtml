@@ -2,170 +2,174 @@
 
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPage1.cshtml";
 }
+<div class="row">
+    <div class="col-md-12">
+        <div class="box box-primary">
+            <div class="box-header with-border">
+                <h3 class="box-title">Add Category</h3>
+            </div>
+            <div class="box-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Customer Name</label>
+                            <div class="col-md-9 col-sm-9 col-xs-12">
+                                @*<input type="hidden" id="hdnCategoryId" value="@(Model.ParentID)" />*@
+                                <select class="form-control select2_single " id="ddnCustomer">
+                                    <option value="0">Select Customer Name</option>
+                                    @if (Model.CustomerList != null)
+                                    {
+                                        foreach (var item in Model.CustomerList)
+                                        {
+                                            string isSelected = string.Empty;
+                                            if (item.ID == Model.ID)
+                                            {
+                                                isSelected = "selected";
+                                            }
+                                            <option value="@item.ID" @isSelected>@item.CustomerName</option>
+                                        }
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <br />
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Invc Date</label>
+                            <div class="col-md-9 col-sm-9 col-xs-12">
+                                <input type="date" class="form-control" id="txtInvoiceDate">
+                            </div>
+                        </div>
 
-<h4>Billing</h4>
-<hr />
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12">Customer Name</label>
-                <div class="col-md-9 col-sm-9 col-xs-12">
-                    @*<input type="hidden" id="hdnCategoryId" value="@(Model.ParentID)" />*@
-                    <select class="form-control select2_single " id="ddnCustomer">
-                        <option value="0">Select Customer Name</option>
-                        @if (Model.CustomerList != null)
-                        {
-                            foreach (var item in Model.CustomerList)
-                            {
-                                string isSelected = string.Empty;
-                                if (item.ID == Model.ID)
-                                {
-                                    isSelected = "selected";
-                                }
-                        <option value="@item.ID" @isSelected>@item.CustomerName</option>
-                            }
-                        }
-                    </select>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <br />
-        <br />
-        <div class="col-md-12">
-            <div class="form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12">Invc Date</label>
-                <div class="col-md-9 col-sm-9 col-xs-12">
-                    <input type="date" class="form-control" id="txtInvoiceDate">
-                </div>
-            </div>
-
-        </div>
-    </div>
 
 
-    <div class="row">
-        <div class="form-group">
-            <div class="col-md-12">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th class="ProductId">Product ID</th>
-                            <th>Product Name</th>
-                            <th>Quantity</th>
-                            <th>Price</th>
-                            <th>Discount</th>
-                            <th>Amount</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tblActiveProducts"></tbody>
-                    <tfoot>
-                        <tr>
-                            <td id="" class="ProductId"></td>
-                            <td><button class="btn btn-success" id="btnCreateProducts">Add more</button></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td id="" class="ProductId"></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                Sub total
-                            </td>
-                            <td>
-                                <input type="text" class="form-control productAmountSubtotal" id="productAmountSubtotal" readonly />
-                            </td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td id="" class="ProductId"></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>Discount</td>
-                            <td>
-                                <input type="text" class="form-control productFinalDiscount numericValidation" id="productFinalDiscount" />
-                            </td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td id="" class="ProductId"></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>Adjustment</td>
-                            <td>
-                                <input type="text" class="form-control ProductAdjustment" id="ProductAdjustment" />
-                            </td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td id="" class="ProductId"></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>Total</td>
-                            <td>
-                                <input type="text" class="form-control PorductGrandTotal" id="PorductGrandTotal" readonly />
-                            </td>
-                            <td></td>
-                        </tr>
-                    </tfoot>
-                </table>
-            </div>
-            <div class="col-md-12">
-                <button class="btn btn-success" id="btnSaveBilling">Save billing</button>
-            </div>
-        </div>
+                <div class="row">
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th class="ProductId">Product ID</th>
+                                        <th>Product Name</th>
+                                        <th>Quantity</th>
+                                        <th>Price</th>
+                                        <th>Discount</th>
+                                        <th>Amount</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tblActiveProducts"></tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td id="" class="ProductId"></td>
+                                        <td><button class="btn btn-success" id="btnCreateProducts">Add more</button></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td id="" class="ProductId"></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>
+                                            Sub total
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control productAmountSubtotal" id="productAmountSubtotal" readonly />
+                                        </td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td id="" class="ProductId"></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>Discount</td>
+                                        <td>
+                                            <input type="text" class="form-control productFinalDiscount numericValidation" id="productFinalDiscount" />
+                                        </td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td id="" class="ProductId"></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>Adjustment</td>
+                                        <td>
+                                            <input type="text" class="form-control ProductAdjustment" id="ProductAdjustment" />
+                                        </td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td id="" class="ProductId"></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>Total</td>
+                                        <td>
+                                            <input type="text" class="form-control PorductGrandTotal" id="PorductGrandTotal" readonly />
+                                        </td>
+                                        <td></td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                        <div class="col-md-12">
+                            <button class="btn btn-success" id="btnSaveBilling">Save billing</button>
+                        </div>
+                    </div>
 
-        <div id="tblProductDiv" style="display:none;">
-            <table>
-                <tbody id="tblProductTbody">
-                    <tr class="trBillingRow">
-                        <td id="" class="ProductId"></td>
-                        <td>
-                            <input type="text" class="form-control productSelection" />
-                            <input type="hidden" class="form-control productSelectionId" />
-                            @*<select class="form-control ddnSearchProductName" id="ddnSearchProductName">
+                    <div id="tblProductDiv" style="display:none;">
+                        <table>
+                            <tbody id="tblProductTbody">
+                                <tr class="trBillingRow">
+                                    <td id="" class="ProductId"></td>
+                                    <td>
+                                        <input type="text" class="form-control productSelection" />
+                                        <input type="hidden" class="form-control productSelectionId" />
+                                        @*<select class="form-control ddnSearchProductName" id="ddnSearchProductName">
                                     <option value="0">Select Product</option>
                                     @foreach (var item in Model.ProductList)
                                     {
                                         <option value="@item.ID">@item.ProductName</option>
                                     }
                                 </select>*@
-                            @*<input type="text" class="form-control" id="txtSearchProductName" placeholder="Customer Name">*@
-                        </td>
-                        <td>
-                            <input type="text" class="form-control productQuantity productBilling" />
-                        </td>
-                        <td>
-                            <input type="text" value="@Model.Price" class="form-control productPrice productBilling" />
-                        </td>
-                        <td>
-                            <input type="text" class="form-control productDiscount numericValidation productBilling" />
-                        </td>
-                        <td>
-                            <input type="text" class="form-control productAmount productBilling" readonly />
-                        </td>
-                        <td>
-                            <a href="#" class="deleteProductRow">Delete</a>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+                                        @*<input type="text" class="form-control" id="txtSearchProductName" placeholder="Customer Name">*@
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control productQuantity productBilling" />
+                                    </td>
+                                    <td>
+                                        <input type="text" value="@Model.Price" class="form-control productPrice productBilling" />
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control productDiscount numericValidation productBilling" />
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control productAmount productBilling" readonly />
+                                    </td>
+                                    <td>
+                                        <a href="#" class="deleteProductRow">Delete</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</div>
- 
-
+</div> 
 <script>
     var customerId = $("#ddnCustomer option:selected");
     var _jsonTableBillingRow = {
@@ -231,10 +235,10 @@
             type: "POST",            
             data: _jsonTableBilling,
             success: function (resultDataId) {
-                console.log(resultDataId);
                 if (resultDataId != undefined && resultDataId != null) {
                     resetBillingPage();
                     toastr.success("Success");
+                    $(this).prop("disabled", true);
                     window.location.href = '/Admin/Invoice/Index/' + resultDataId;
                 }
             },

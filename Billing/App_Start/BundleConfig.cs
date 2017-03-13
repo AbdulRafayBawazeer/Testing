@@ -29,8 +29,10 @@ namespace Billing
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
-            bundles.Add(new StyleBundle("~/Content/toastr").Include(
-                      "~/Content/toastr/toastr.min.css"));
+            bundles.Add(new StyleBundle("~/Content/AdminLTE").Include(
+                      "~/Content/toastr/toastr.min.css")); 
+
+             
         }
     }
 }

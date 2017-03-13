@@ -33,6 +33,8 @@ namespace DataAccessLayer.DataModel
 
         public int? CreatedBy { get; set; }
 
+
+
         public virtual Customer Customer { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

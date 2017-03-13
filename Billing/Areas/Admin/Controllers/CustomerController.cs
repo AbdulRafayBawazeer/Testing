@@ -22,7 +22,9 @@ namespace Billing.Areas.Admin.Controllers
         // GET: Admin/Customer
         public ActionResult Index()
         {
-            return View();
+
+            _CustomerModel.CustomerList = _CustomerBusiness.CustomerList().ToList();
+            return View(_CustomerModel);
         }
         public ActionResult Create(int? id)
         {
@@ -50,7 +52,7 @@ namespace Billing.Areas.Admin.Controllers
                         var AddCategory = _CustomerBusiness.SaveCustomer(model);
                     }
                     _CustomerModel.CustomerList = _CustomerBusiness.CustomerList();
-                    return PartialView("_ListCustomer", _CustomerModel);
+                    return View("Index", _CustomerModel);
                 }
             }
 
@@ -60,7 +62,7 @@ namespace Billing.Areas.Admin.Controllers
 
             }
 
-            return Json("", JsonRequestBehavior.AllowGet);
+            return View("Index", _CustomerModel);
         }
     }
 }

@@ -15,7 +15,7 @@ namespace BusinessLogicLayer.Interface
         int SaveProduct(ProductModel mode);
         ProductModel GetProductbyId(int id);
         List<CustomerModel> CustomerNamesList();
-
+        List<ProductModel> ProductList();
         //List<ProductModel> GetProductNames(string searchName);
     }
 }

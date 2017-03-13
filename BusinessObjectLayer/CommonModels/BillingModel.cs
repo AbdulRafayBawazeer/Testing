@@ -17,7 +17,7 @@ namespace BusinessObjectLayer.CommonModels
         public int? ProductDiscount { get; set; }
         public decimal? ProductAmount { get; set; }
         public int CustomerId { get; set; }
-        public int CustomerName { get; set; }
+        public string CustomerName { get; set; }
         public string InvoiceNumber { get; set; }
         public DateTime InvoiceDate { get; set; }
         public int  TransactionId { get; set; }

@@ -217,13 +217,17 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\BillingController.cs" />
+    <Compile Include="Areas\Admin\Controllers\Category1Controller.cs" />
     <Compile Include="Areas\Admin\Controllers\CategoryController.cs" />
     <Compile Include="Areas\Admin\Controllers\CustomerController.cs" />
     <Compile Include="Areas\Admin\Controllers\InvoiceController.cs" />
+    <Compile Include="Areas\Admin\Controllers\Product1Controller.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
     <Compile Include="Areas\Test\Controllers\TestingThemeController.cs" />
     <Compile Include="Areas\Test\TestAreaRegistration.cs" />
     <Compile Include="Authorize\AuthorizeAttribute.cs" />
+    <Compile Include="OwinAuth\MyAuthorizationServerProvider.cs" />
+    <Compile Include="OwinAuth\OwinAuthDbContext.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -1216,7 +1220,6 @@
     </Content>
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Admin\Views\Category\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\Category\_ListCategory.cshtml" />
     <Content Include="Areas\Admin\Views\Customer\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Customer\_ListCustomer.cshtml" />
     <Content Include="Areas\Admin\Views\Product\_ListProducts.cshtml" />
@@ -1359,6 +1362,13 @@
     <Content Include="Areas\Test\Views\Shared\_LayoutPage1.cshtml" />
     <Content Include="Areas\Test\Views\TestingTheme\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Invoice\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_LayoutPage1.cshtml" />
+    <Content Include="Areas\Admin\Views\Category1\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Category1\_ListCategory.cshtml" />
+    <Content Include="Areas\Admin\Views\Category1\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Customer\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Product1\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Product1\Create.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -1412,7 +1422,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Areas\Test\Models\" />
   </ItemGroup>
   <ItemGroup>

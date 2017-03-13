@@ -60,6 +60,26 @@ namespace BusinessLogicLayer.Implementation
                     return _product;
         }
 
+        public List<ProductModel> ProductList()
+        {
+            List<ProductModel> _productList = new List<ProductModel>();
+            var productList = _Product.GetAll().ToList();
+            _productList = (from item in productList
+                            select new ProductModel
+                            {
+                                ID = item.ID,
+                                ProductName = item.ProductName,
+                                CategoryId = Convert.ToInt32(item.CategoryId),
+                                Description = item.Description,
+                                Price = Convert.ToDecimal(item.Price),
+                                Image = item.Image,
+                                ImageType = item.ImageType,
+                                CategoryName = (item.Category != null) ? item.Category.CategoryName : string.Empty,
+                                Quantity = 1
+                            }).ToList();
+            return _productList;
+        }
+
         public List<ProductModel> ProductList(ProductModel _ProductModel)
         {
             List<ProductModel> _productList = new List<ProductModel>();

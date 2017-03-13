@@ -2,55 +2,66 @@
 @model BusinessObjectLayer.CommonModels.ProductModel
 @{
     ViewBag.Title = "Create";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPage1.cshtml";
+
 }
-<h2>Manage Products</h2>
 
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-12 pull-right">
-            <button type="button" class="btn btn-primary" id="btnAddProduct">Add Product</button>
-            <br />
-            <div id="modalProduct" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <h4 class="modal-title" id="productModalLabel"></h4>
-                        </div>
-                        <div class="modal-body">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="row" id="addEditProductPartial">
-                                       
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="box box-primary">
+            <div class="box-header with-border">
+                <h3 class="box-title">Add Category</h3>
+            </div>
+            <div class="box-body">
+                <div class="row">
+                    <div class="col-md-12 pull-right">
+                        <button type="button" class="btn btn-primary" id="btnAddProduct">Add Product</button>
+                        <br />
+                        <div id="modalProduct" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title" id="productModalLabel"></h4>
                                     </div>
-                                </div>
-                            </div>
+                                    <div class="modal-body">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="row" id="addEditProductPartial">
 
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary" id="btnSaveProduct">Save changes</button>
-                        </div>
-                    </div><!-- /.modal-content -->
-                </div><!-- /.modal-dialog -->
-            </div><!-- /.modal -->
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary" id="btnSaveProduct">Save changes</button>
+                                    </div>
+                                </div><!-- /.modal-content -->
+                            </div><!-- /.modal-dialog -->
+                        </div><!-- /.modal -->
+                    </div>
+                </div>
+                <br />
+                <div class="row" id="tblProducts">
+                    @Html.Action("AddProduct")
+                </div>
+            </div>
         </div>
-    </div>
-    <br />
-    <div class="row" id="tblProducts">
-        @Html.Action("AddProduct")
     </div>
 </div>
 
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
 <script>
-    var _CategoryName = $("#txtCategoryName");  
-    var _ParentId = $("#ddnCategory option:selected");   
+   // var _CategoryName = $("#txtCategoryName");
+    var _ParentId = $("#ddnCategory option:selected");
     var hdrTextSaveProduct = "Add Product";
     var hdrTextEditProduct = "Edit Product";
     function initProduct() {
-        var _CategoryName = $("#txtCategoryName");
+       // var _CategoryName = $("#txtCategoryName");
         var _ParentId = $("#ddnCategory option:selected");
     }
     $(document).ready(function () {
@@ -94,7 +105,7 @@
                 }
             });
         });
-        $(document).on("change", "#uploadProductImage", function (e) {            
+        $(document).on("change", "#uploadProductImage", function (e) {
             if (this.files && this.files[0]) {
                 var _filesName = this.files[0];
                 var FR = new FileReader();
@@ -143,7 +154,7 @@
                 _image.addClass("hide");
             }
             _image.attr("src", "");
-        }        
+        }
     }
 
     function loadProductModal(_productModalId) {

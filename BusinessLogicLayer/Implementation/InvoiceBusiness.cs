@@ -32,6 +32,7 @@ namespace BusinessLogicLayer.Implementation
                 _BillingModel.GrandTotal = orderDetails.TotalPrice;
                 _BillingModel.Discount = orderDetails.Discount;
                 _BillingModel.Adjustment = orderDetails.Adjustment;
+                _BillingModel.CustomerName = orderDetails.Customer.CustomerName;
                 if (orderDetails.OrderDetails != null && orderDetails.OrderDetails.Any())
                 {
                     _BillingModel.BillingList = (from @orderDetailsBill in orderDetails.OrderDetails select new BillingModel {
@@ -40,7 +41,9 @@ namespace BusinessLogicLayer.Implementation
                         ProductQuantity= @orderDetailsBill.Quantity,
                         ProductPrice= @orderDetailsBill.UnitPrice,
                         ProductAmount= @orderDetailsBill.TotalPrice,
-                        ProductDiscount= orderDetailsBill.Discount
+                        ProductDiscount= orderDetailsBill.Discount                        
+                        
+
                     }).ToList();
                 }
             }

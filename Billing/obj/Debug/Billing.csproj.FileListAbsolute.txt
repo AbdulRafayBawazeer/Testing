@@ -212,3 +212,4 @@ E:\Billing New\Billing New Feb\Testing\Billing\bin\DataAccessLayer.pdb
 E:\Billing New\Billing New Feb\Testing\Billing\obj\Debug\Billing.csprojResolveAssemblyReference.cache
 E:\Billing New\Billing New Feb\Testing\Billing\obj\Debug\Billing.dll
 E:\Billing New\Billing New Feb\Testing\Billing\obj\Debug\Billing.pdb
+E:\Billing New\Billing New Feb\Testing\Billing\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml

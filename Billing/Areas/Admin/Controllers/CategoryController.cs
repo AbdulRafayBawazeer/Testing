@@ -31,30 +31,30 @@ namespace Billing.Areas.Admin.Controllers
         {
             return View();
         }
-        public async Task<ActionResult> Create(int? id)
+        public ActionResult Create(int? id)
         {
             if (id != null)
             {
                 _CategoryModel = _CategoryBusiness.Getbyid(Convert.ToInt32(id));
             }
-            using (var client = new HttpClient())
-            {
-                client.BaseAddress = new Uri("http://localhost:64581/");
-                client.DefaultRequestHeaders.Accept.Clear();
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                //GET Method  
-                HttpResponseMessage response = await client.GetAsync("api/Category");
-                if (response.IsSuccessStatusCode)
-                {
-                    var jsonString = await response.Content.ReadAsStringAsync();
-                    _CategoryModel.CategoryList =await response.Content.ReadAsAsync<List<CategoryModel>>();
-                }
-                else
-                {
+            //using (var client = new HttpClient())
+            //{
+            //    client.BaseAddress = new Uri("http://localhost:64581/");
+            //    client.DefaultRequestHeaders.Accept.Clear();
+            //    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            //    //GET Method  
+            //    HttpResponseMessage response = await client.GetAsync("api/Category");
+            //    if (response.IsSuccessStatusCode)
+            //    {
+            //        var jsonString = await response.Content.ReadAsStringAsync();
+            //        _CategoryModel.CategoryList =await response.Content.ReadAsAsync<List<CategoryModel>>();
+            //    }
+            //    else
+            //    {
                      
-                }
-            }
-            // _CategoryModel.CategoryList = _CategoryBusiness.CategoryList().ToList();
+            //    }
+            //}
+             _CategoryModel.CategoryList = _CategoryBusiness.CategoryList().ToList();
             return View(_CategoryModel);
         }
         public ActionResult GetAllCateegory(int? id)
